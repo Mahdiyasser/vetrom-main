@@ -1,0 +1,79 @@
+{
+  "sections": [
+    {
+      "id": "intro",
+      "title": "Intro & heads-up",
+      "content": "<p>This document is <strong>informational only</strong>. It explains how I usually work, what I will do, and what clients should not expect. <strong>It is NOT a legal contract</strong>, it is <strong>not legally binding</strong>, it is <strong>not signed</strong>, and <strong>nothing in this document is intended to be used in court or any legal process</strong>.</p><p>By choosing to work with me, you acknowledge that this document is a practical guideline, not a legal agreement.</p><p><strong>Who I am:</strong> Mahdi Yasser — developer and founder of VetroM. I build websites, apps, and digital products for clients worldwide.</p><p><strong>Scope:</strong> These guidelines apply to every project I deliver unless we clearly agree on different rules before I start.</p>"
+    },
+    {
+      "id": "ownership",
+      "title": "1. Work ownership & usage",
+      "content": "<p>I offer flexible ownership options depending on what we agree during the project scoping. I will always state which option applies before starting work.</p><h3>Option A — I retain full ownership (default)</h3><ul><li>I permanently retain ownership of all code, frameworks, systems, and structures I build or use.</li><li>Payment does <strong>not</strong> transfer ownership of frameworks, architecture, or reusable systems.</li><li>You are granted a license to use the delivered website/app/service for your intended purpose.</li><li>You may not resell, redistribute, or claim the work or its internal systems as your own.</li></ul><h3>Option B — Shared / limited ownership</h3><ul><li>You may be granted rights to use and edit the project for your needs.</li><li>I retain the right to reuse, adapt, and resell code, components, or patterns that I built for your project. You may not resell the full product.</li></ul><h3>Option C — Full ownership for a head‑start period</h3><ul><li>You receive <strong>full ownership rights</strong> to the agreed deliverables <strong>for the duration of the head‑start period</strong>.</li><li>The <strong>head start is effective immediately</strong> from delivery.</li><li>During the head‑start period, I will <strong>not reuse, resell, replicate, or deliver the same or substantially similar work</strong> to anyone else.</li><li>The purpose of the head start is exclusivity: you are the <strong>only one</strong> using that solution during the agreed period.</li><li>After the head‑start period ends, ownership and reuse rights revert to what we agreed beforehand (for example: I may reuse general ideas, systems, or non‑exclusive components).</li><li>The length and exact scope of the head‑start period must be clearly agreed on before work starts.</li></ul><h3>Option D — Special agreement</h3><ul><li>Any ownership variations not covered above will be defined in the project agreement we write and sign before work starts.</li></ul><blockquote>I will always clarify and confirm which option we choose. If you want exclusive transfer of all rights, mention it before we start so I can price and draft it correctly.</blockquote>"
+    },
+    {
+      "id": "backend",
+      "title": "2. System & backend (full system)",
+      "content": "<ul><li>\"System & backend\" means <strong>everything that makes the product work</strong> behind the scenes.</li><li>This includes, without limitation: logic, code structure, frameworks, APIs, databases, workflows, CMS functionality, admin panels, automation, configurations, integrations, and overall architecture.</li><li><strong>Hosting servers are not mine.</strong> All servers belong to the hosting provider chosen by the client or agreed on together. I do not own or control hosting infrastructure unless explicitly stated.</li><li>I retain all rights over the system and backend I design or use, unless we explicitly agree otherwise.</li><li>You are granted the rights needed to use and manage your product, but not to resell, redistribute, or claim ownership of the system or backend.</li><li>Any transfer of ownership or exclusivity over the system and backend must be explicitly agreed on before work starts and may affect pricing.</li></ul>"
+    },
+    {
+      "id": "design",
+      "title": "3. Design, style and content reuse",
+      "content": "<ul><li>I may reuse design patterns, components, or stylistic elements I created for you in other projects. Visual similarity of generic elements does not mean your project has been copied — it’s normal for designers to reuse proven patterns.</li><li>If we agree that certain assets or styles are exclusive to your project, that exclusivity will be written into the project agreement.</li></ul>"
+    },
+    {
+      "id": "support",
+      "title": "4. After-delivery support (bug fixes & edits)",
+      "content": "<p>I provide a post-delivery support window. The exact length is defined in the project agreement, but standard practice is up to <strong>21 days</strong> after delivery.</p><p><strong>During the support window (0–21 days by default):</strong></p><ul><li>I will fix bugs I introduced and handle small edits included in the agreed scope.</li><li>Any major new features or scope changes will be treated as a new paid project.</li></ul><p><strong>After the support window ends:</strong></p><ul><li>Ongoing work, bug-fixing, or changes are not automatically included and will require a new agreement.</li><li>I am not obligated to accept or perform additional work after this period, though I may offer paid options if you ask.</li></ul>"
+    },
+    {
+      "id": "payment",
+      "title": "5. Payment & pricing",
+      "content": "<ul><li>If the service or package is listed on VetroM’s public services page at a price, that is the price you pay unless we agree otherwise in writing.</li><li>Standard deposit is <strong>50%</strong> (half) before I start for fixed-price projects listed as services; the deposit rate can be changed only by me and will be stated in the project agreement.</li><li>For custom projects not listed on the services page, price and payment schedule are set by mutual agreement and may change with scope.</li><li>If we agree on a fixed price explicitly in writing, that fixed price applies and I won’t change it for scope that matches what we documented.</li><li>Payment method and schedule will be defined in the project agreement and must be respected by the client.</li></ul><p><strong>Free trials (if offered):</strong></p><ul><li>Trials are intended to show the concept or confirm the product is working and well-received. They are not open-ended evaluation periods.</li><li>Trial period will not exceed <strong>21 days</strong> unless I explicitly agree to more.</li><li>I may end a trial early if the product proves successful and require payment at that point.</li></ul>"
+    },
+    {
+      "id": "revisions",
+      "title": "6. Revisions & change requests",
+      "content": "<ul><li>I include the number of revisions agreed in the project scope. Extra revisions or scope changes may incur additional fees.</li><li>Major changes that alter the original scope will be treated as additional work and priced accordingly.</li></ul>"
+    },
+    {
+      "id": "responsibilities",
+      "title": "7. Client responsibilities",
+      "content": "<ul><li>Provide accurate content, access, and materials I request in a timely manner.</li><li>Ensure your supplied content (text, images, logos, prices, data, code, etc.) does not infringe copyrights, laws, or third‑party rights.</li></ul><p><strong>Response time for requested data:</strong></p><ul><li>When I request required data for the project (for example: images, text, prices, product details, credentials), the client must provide it <strong>as soon as possible (ASAP)</strong>.</li><li>Unless we explicitly agree otherwise, <strong>ASAP means within 24 hours</strong> of the request.</li><li>If the client delays beyond the agreed time, a <strong>delay fine may apply</strong>, calculated per hour.</li><li>Unless stated otherwise, the <strong>default fine is 250 EGP per hour</strong> of delay.</li></ul><p><strong>Logic‑based exceptions:</strong></p><ul><li>Some requests naturally require more time (for example: collecting restaurant food images, menus, or real‑world assets).</li><li>In such cases, I and the client may agree on a longer, reasonable deadline based on logic and real constraints.</li><li>When a special deadline is agreed on, that agreed time replaces the default 24‑hour rule.</li></ul>"
+    },
+    {
+      "id": "prohibited",
+      "title": "8. Use, abuse, and prohibited requests",
+      "content": "<ul><li>I will not build or support anything illegal, unethical, or that violates platform terms (spam tools, malware, scams, copyright-breaking systems, etc.).</li><li>If the client uses delivered work in a way that causes legal problems, misuse, or damage, I am not liable for the consequences.</li></ul>"
+    },
+    {
+      "id": "liability",
+      "title": "9. Liability & warranty",
+      "content": "<ul><li>I will deliver work that meets the agreed scope and quality standards.</li><li>I am not liable for indirect losses, lost profits, or damage arising from use of the delivered product.</li><li>Any guarantees for uptime, security, or performance must be written into the agreement — otherwise, no implied warranty.</li></ul>"
+    },
+    {
+      "id": "termination",
+      "title": "10. Termination and cancellations",
+      "content": "<ul><li>Either party can cancel a project. Work already performed is billable.</li><li>Paid work is non-refundable unless we agree otherwise.</li></ul>"
+    },
+    {
+      "id": "portfolio",
+      "title": "11. Portfolio, publicity & testimonials",
+      "content": "<ul><li>I may publicly state that I worked with you and include the project in my portfolio, case studies, or marketing materials.</li><li>I may use screenshots, code excerpts, or public-facing materials from the project unless we agreed on privacy or nondisclosure in writing.</li><li>I may publish a testimonial from you, but only after you agree to provide one. Clients are expected to give one testimonial when requested and agreed during project closure.</li></ul>"
+    },
+    {
+      "id": "final-notes",
+      "title": "12. Final notes & how we agree changes",
+      "content": "<ul><li>This document does not create a legal relationship or enforceable obligations.</li><li>Nothing here can be used as legal evidence or relied on in court.</li><li>The version discussed at the start of the project is the version that applies for practical expectations only.</li><li>If there is disagreement about what was agreed, this document serves only as a reference of general working style, not proof.</li><li>Any changes or exceptions are handled informally by mutual understanding before work begins.</li></ul>"
+    },
+    {
+      "id": "privacy",
+      "title": "Privacy Policy — how I handle client info",
+      "content": "<p><strong>What I collect:</strong></p><ul><li>Contact details (name, email, phone) and any files or data you provide for the project.</li></ul><p><strong>Why I collect it:</strong></p><ul><li>To communicate, design, develop, invoice, and deliver the project.</li></ul><p><strong>How I use it:</strong></p><ul><li>Project communication and delivery.</li><li>Troubleshooting and support during the agreed support window.</li></ul><p><strong>Sharing & third parties:</strong></p><ul><li>I am a solo freelancer and I do not sell your personal info.</li><li>I may share minimal project details with partners or service providers only when necessary for the project and only with your consent.</li></ul><p><strong>Security & retention:</strong></p><ul><li>I take reasonable measures to protect your data while I hold it.</li><li>I keep data only as long as necessary to support the project or meet legal obligations.</li></ul><p><strong>Portfolio & publicity (again):</strong></p><ul><li>I reserve the right to mention and show the project in my portfolio and marketing, unless we agreed to specific restrictions.</li></ul><p><strong>Your rights:</strong></p><ul><li>Ask me what data I hold about the project or request deletion of non-essential personal data.</li></ul>"
+    },
+    {
+      "id": "contact",
+      "title": "How to contact me",
+      "content": "<p>Mahdi Yasser — VetroM</p><p>Email: <a href=\"mailto:mahdi@mahdiyasser.site\">mahdi@mahdiyasser.site</a></p><p>Contact page: <a href=\"https://mahdiyasser.site/contact\" target=\"_blank\">https://mahdiyasser.site/contact</a></p><p>Personal Website: <a href=\"https://mahdiyasser.site\" target=\"_blank\">https://mahdiyasser.site</a></p>"
+    }
+  ]
+}

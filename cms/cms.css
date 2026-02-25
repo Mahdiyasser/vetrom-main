@@ -1,0 +1,563 @@
+/* --- GLOBAL CONFIGURATION --- */
+:root {
+    /* Color Palette - DARK MODE (NEW CYBERPUNK/VIOLET) */
+    --bg-primary: #0e041f; /* Deep, dark violet background */
+    --bg-content: rgba(138, 43, 226, 0.1); /* Semi-transparent violet/blue */
+    --accent-neon: #8a2be2; /* BlueViolet for neon accent */
+    --text-primary: #e0f7fa; /* Light cyan/aqua for primary text */
+    --text-secondary: #00bcd4; /* Brighter Cyan for secondary text/link */
+    --grid-line: rgba(138, 43, 226, 0.4); /* More opaque violet for grid lines */
+    --glow-shadow: 0 0 12px rgba(138, 43, 226, 0.9); /* Stronger violet glow */
+    --box-shadow-card: 0 0 18px rgba(0, 188, 212, 0.3); /* Cyan shadow for cards */
+
+    /* Mapped Variables */
+    --primary-color: var(--accent-neon);
+    --secondary-color: var(--text-secondary);
+    --danger-color: #ff5722; /* Deep orange for danger/error */
+    --bg-color: var(--bg-primary);
+    --card-bg: var(--bg-content);
+    --text-dark: var(--text-primary);
+    --text-light: #9fa8da; /* Pale violet for neutral secondary text */
+    --border-color: var(--grid-line);
+
+    /* Typography */
+    --font-primary: 'Consolas', 'Courier New', monospace;
+    --font-secondary: 'Arial', sans-serif;
+    --font-family: var(--font-primary);
+
+    /* Spacing and Sizing */
+    --radius: 8px;
+    --shadow: var(--box-shadow-card);
+}
+
+/* ---------------------------------------------------------------------- */
+/* LIGHT MODE VARIABLES */
+/* ---------------------------------------------------------------------- */
+
+body.light-theme {
+    --bg-primary: #f8f8f8;
+    --bg-content: rgba(255, 255, 255, 0.85);
+    --accent-neon: #1a56ff;
+    --text-primary: #333333;
+    --text-secondary: #4d4d4d;
+    --grid-line: rgba(26, 86, 255, 0.15);
+    --glow-shadow: 0 0 10px rgba(26, 86, 255, 0.4);
+    --box-shadow-card: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    /* Mapped Variables */
+    --primary-color: var(--accent-neon);
+    --secondary-color: var(--text-secondary);
+    --bg-color: var(--bg-primary);
+    --card-bg: var(--bg-content);
+    --text-dark: var(--text-primary);
+    --text-light: var(--text-secondary);
+    --border-color: #dee2e6; /* Lighter border in light mode */
+    --shadow: var(--box-shadow-card);
+}
+
+/* --- THE CRITICAL FIX: GLOBAL BOX-SIZING RESET --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* --- BASE STYLES --- */
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+    margin: 0; /* Ensures no default body margins cause overflow */
+    padding: 20px;
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+    /* Hide potential overflow, although box-sizing should prevent it */
+    overflow-x: hidden; 
+}
+
+.container {
+    max-width: 1400px; /* PC layout: Wider container */
+    margin: 0 auto;
+
+}
+
+header {
+    /* Updated for integrated controls */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+    text-align: left; /* Ensure title is left-aligned by default */
+}
+
+.header-title-group {
+    flex-grow: 1;
+}
+
+.header-controls {
+    /* Adjusted for flex layout */
+    margin-left: 20px;
+}
+
+h1 {
+    color: var(--text-primary);
+    font-size: 2.5em;
+    margin-bottom: 2px;
+    margin-top: 0;
+}
+
+h2 {
+    color: var(--text-dark);
+    font-size: 1.5em;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    border-left: 4px solid var(--primary-color);
+    padding-left: 10px;
+}
+
+h3 {
+    color: var(--text-dark);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-left: 4px solid var(--primary-color);
+    padding-left: 10px;
+}
+
+::-webkit-scrollbar{
+display: none;
+}
+
+/* --- BUTTON STYLES --- */
+.action-btn {
+    padding: 10px 18px;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+    color: var(--bg-primary); /* Text color contrast */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    text-shadow: 0 0 5px var(--bg-primary);
+}
+
+.primary-btn:hover {
+    box-shadow: var(--glow-shadow);
+}
+
+.secondary-btn {
+    background-color: var(--text-secondary);
+    color: var(--bg-color);
+}
+
+.secondary-btn:hover {
+    opacity: 0.9;
+}
+
+.danger-btn {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.danger-btn:hover {
+    opacity: 0.9;
+}
+
+.theme-toggle {
+    background: none;
+    border: 1px solid var(--grid-line);
+    padding: 8px;
+    color: var(--primary-color);
+    box-shadow: none;
+}
+.theme-toggle:hover {
+    background-color: var(--grid-line);
+    box-shadow: var(--glow-shadow);
+}
+
+
+/* --- PROJECT LIST AND CARD STYLES --- */
+.project-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    flex-wrap: wrap;
+    min-height: 100px;
+}
+
+.project-item {
+    display: flex;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    max-width: 49%;
+    margin-right: 2px;
+    min-width: 49%;
+    padding: 15px;
+    box-shadow: var(--shadow);
+    cursor: grab;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s;
+    user-select: none;
+}
+
+.project-item:hover {
+    box-shadow: 0 6px 15px var(--border-color);
+}
+
+/* Dragging state */
+.project-item.dragging {
+    opacity: 0.7;
+    transform: scale(1.02);
+}
+
+/* 16:9 Aspect Ratio for List Thumbnail */
+.project-thumbnail {
+    flex-shrink: 0;
+    width: 144px; /* Fixed width */
+    height: 0; /* Set height to 0 for padding hack */
+    padding-bottom: calc(144px * 9 / 16); /* 16:9 ratio (56.25% of width) */
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-right: 15px;
+    background-color: var(--grid-line);
+    border: 1px solid var(--border-color);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-thumbnail img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-info {
+    flex-grow: 1;
+    padding-right: 15px;
+}
+
+.project-info h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+    font-size: 1.3em;
+}
+
+.project-info p {
+    margin: 3px 0;
+    font-size: 0.9em;
+    color: var(--text-light);
+}
+
+.project-info .meta-data {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.project-info .meta-data span {
+    background-color: var(--grid-line);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.project-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 80px;
+}
+
+.project-actions button {
+    width: 100%;
+    font-size: 0.9em;
+    padding: 8px 10px;
+}
+
+/* --- FORM AND MODAL STYLES --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7); /* Consistent overlay */
+}
+
+.modal-content {
+    background-color: var(--bg-color);
+    margin: 0% auto;
+    padding: 10px;
+    border: 1px solid var(--primary-color);
+    border-radius: var(--radius);
+    width: 90%;
+    max-width: 950px; /* PC layout: Wider modal */
+    box-shadow: var(--glow-shadow);
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+.small-modal {
+    max-width: 400px;
+    margin-top: 10%;
+}
+
+.close-btn {
+    color: var(--text-secondary);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* New Grid Layout for Modal Form */
+.form-grid-2-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 20px;
+}
+/* Ensure the children of the grid take up one column each */
+.form-grid-2-col > div {
+    /* No flex-basis needed, grid handles width */
+}
+/* Force the specific image/goods sections to span two columns */
+#current-image-container, 
+#current-goods-container {
+    grid-column: 1 / -1; /* Span across all columns */
+}
+/* Ensure specific full-width inputs behave */
+#project-form label,
+#project-form input[type="text"],
+#project-form input[type="file"],
+#project-form textarea {
+    width: 100%;
+}
+/* Ensure elements outside the grid go full width */
+.form-grid-2-col + hr,
+#project-form > label:not(:first-child), 
+#project-form > input:not(:first-child):not([type="hidden"]),
+#project-form > textarea,
+#modal-submit-btn {
+    grid-column: 1 / -1;
+}
+/* Style adjustments for labels in the grid context */
+.form-grid-2-col label {
+    margin-top: 10px;
+}
+
+
+#project-form hr {
+    border-color: var(--grid-line);
+    margin: 20px 0;
+    grid-column: 1 / -1; /* Ensure separators span full width */
+}
+
+#project-form label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+#project-form input[type="text"],
+#project-form input[type="file"],
+#project-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-primary);
+    color: var(--text-dark);
+    border-radius: 4px;
+    /* box-sizing: border-box; is now global */
+    font-family: inherit;
+    font-size: 1em;
+}
+
+#project-form input[type="file"] {
+    padding: 7px 10px;
+    background-color: var(--card-bg);
+}
+
+#project-form textarea {
+    resize: vertical;
+}
+
+/* Removed: .inline-fields is replaced by .form-grid-2-col */
+.inline-fields {
+    display: none;
+}
+
+
+#modal-submit-btn {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.confirm-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Image Upload/Preview Specific Styles (16:9 Aspect Ratio) */
+.image-preview-wrapper {
+    max-width: 300px;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    border: 2px dashed var(--border-color);
+    margin-bottom: 10px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+}
+
+.image-preview-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: var(--bg-primary);
+}
+
+.image-actions {
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+
+.upload-note {
+    font-size: 0.8em;
+    color: var(--text-secondary);
+    margin-top: -5px;
+    margin-bottom: 15px;
+}
+
+/* --- UTILITY & RESPONSIVE --- */
+.loading-message {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 20px;
+}
+
+/* ================================================================= */
+/* MOBILE COMPATIBILITY: @media (max-width: 800px) */
+/* ================================================================= */
+@media (max-width: 800px) {
+    /* General Layout */
+    .container {
+        padding: 10px; 
+        max-width: 100%; 
+    }
+    
+    header {
+        /* Revert to single column/left aligned for mobile */
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        padding-bottom: 25px;
+    }
+    
+    .header-controls {
+        /* Move controls to the top right of the header section */
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        margin-left: 0;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+    
+    /* Modals */
+    .modal-content {
+        margin: 10% auto;
+        width: 95%; 
+        max-width: 95%; 
+        padding: 15px;
+    }
+    
+    .small-modal {
+        margin-top: 20%;
+        max-width: 95%;
+    }
+
+    /* Form Grid: Switch to single column on mobile */
+    .form-grid-2-col {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    /* Project Items */
+    .project-item {
+        flex-direction: column;
+        padding: 10px;
+    }
+    
+    .project-thumbnail {
+        width: 100%;
+        padding-bottom: 56.25%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    .project-info {
+        padding-right: 0;
+    }
+    
+    .project-info h4 {
+        font-size: 1.1em;
+    }
+    
+    .project-info p {
+        font-size: 0.8em;
+    }
+    
+    .project-actions {
+        flex-direction: row;
+        margin-top: 10px;
+        gap: 5px;
+        min-width: auto;
+    }
+    .project-actions button {
+        flex-grow: 1;
+        font-size: 0.85em;
+        padding: 8px;
+    }
+    
+    #modal-submit-btn {
+        padding: 15px;
+    }
+    
+    .image-preview-wrapper {
+        max-width: 100%;
+    }
+}

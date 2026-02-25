@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VetroM — Client Guidelines</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* Reset & base */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Verdana, sans-serif; 
+}
+
+body { 
+    background: #f0f2f5; 
+    color: #333; 
+    line-height: 1.7; 
+    padding: 20px; 
+    scroll-behavior: smooth; 
+    font-size: 16px; 
+    transition: font-size 0.2s ease; 
+    /* Padding bottom to ensure content isn't hidden behind the floating navigator */
+    padding-bottom: 80px; 
+}
+
+header { 
+    text-align: center; 
+    padding: 40px 20px; 
+    background: linear-gradient(135deg, #667eea, #764ba2); 
+    color: #fff; 
+    border-radius: 15px; 
+    margin-bottom: 30px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+}
+
+header h1 { font-size: 2.5rem; margin-bottom: 10px; letter-spacing: 1px; }
+header p { font-size: 1.1rem; color: #e0e0e0; }
+
+/* Navigation */
+.toc { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 12px; 
+    justify-content: center; 
+    margin-bottom: 20px; 
+    background: #f0f2f5; 
+    padding: 10px 0; 
+}
+
+.toc button { 
+    background: #667eea; 
+    color: #fff; 
+    border: none; 
+    padding: 10px 18px; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    font-weight: 500; 
+    transition: 0.3s; 
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1); 
+}
+
+.toc button:hover { 
+    background: #764ba2; 
+    transform: translateY(-2px); 
+}
+
+/* Unified Search & Font Controls Container */
+.search-container {
+    display: flex;
+    gap: 15px;
+    max-width: 1100px;
+    margin: 0 auto 30px auto;
+    align-items: flex-end; 
+}
+
+.search-box, .teleport-box {
+    flex: 2;
+}
+
+.font-controls-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: fit-content;
+}
+
+.control-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: 2px;
+}
+
+.button-group {
+    display: flex;
+    gap: 5px;
+}
+
+#search, #line-teleport { 
+    width: 100%; 
+    height: 44px; 
+    padding: 12px 15px; 
+    border-radius: 12px; 
+    border: 1px solid #ccc; 
+    font-size: 1rem; 
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: #fff;
+}
+
+#search:focus, #line-teleport:focus { 
+    outline: none; 
+    border-color: #667eea; 
+    box-shadow: 0 0 0 3px rgba(102,126,234,0.2); 
+}
+
+.button-group button { 
+    flex: 1;
+    height: 44px;
+    padding: 0 15px;
+    border-radius: 10px; 
+    border: none; 
+    background: #667eea; 
+    color: white; 
+    cursor: pointer; 
+    font-weight: 600; 
+    transition: 0.3s; 
+}
+
+.button-group button:hover { 
+    background: #764ba2; 
+    transform: translateY(-1px); 
+}
+
+/* Content Sections */
+section { 
+    background: #fff; 
+    border-radius: 15px; 
+    padding: 30px 25px; 
+    margin-bottom: 30px; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
+    transition: transform 0.3s, box-shadow 0.3s; 
+}
+
+section:hover { 
+    transform: translateY(-3px); 
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08); 
+}
+
+section h2 { 
+    margin-bottom: 15px; 
+    color: #333; 
+    font-size: 1.6rem; 
+    position: relative; 
+    display: inline-block; 
+}
+
+section h2::after { 
+    content: ''; 
+    display: block; 
+    width: 50px; 
+    height: 3px; 
+    background: #667eea; 
+    border-radius: 2px; 
+    margin-top: 6px; 
+}
+
+section h3 { margin-top: 15px; margin-bottom: 8px; color: #555; font-size: 1.2rem; }
+section p, section li { margin-bottom: 12px; line-height: 1.6; color: #555; position: relative; }
+section ul, section ol { margin-bottom: 12px; padding-left: 25px; }
+
+blockquote { 
+    border-left: 4px solid #667eea; 
+    padding-left: 12px; 
+    color: #555; 
+    margin-bottom: 12px; 
+    background: #f7f8fc; 
+    border-radius: 6px; 
+}
+
+a { color: #667eea; text-decoration: none; font-weight: 500; }
+mark { background-color: #fffa9c; padding: 0 3px; border-radius: 3px; color: #000; }
+/* Current match highlighting */
+mark.current-match { background-color: #ff9f43; color: white; outline: 2px solid #333; }
+
+/* Responsive Design */
+@media(max-width:768px){
+    body { padding: 15px; padding-bottom: 80px; }
+    header h1 { font-size: 1.8rem; }
+    
+    .search-container { 
+        flex-direction: column; 
+        gap: 15px; 
+        align-items: stretch;
+    }
+    
+    .font-controls-wrapper {
+        align-items: center;
+    }
+
+    .button-group {
+        width: 100%;
+    }
+
+    .toc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .toc button { padding: 8px 4px; font-size: 0.8rem; }
+    section { padding: 20px; }
+}
+
+@media(max-width:480px){
+    .toc { grid-template-columns: repeat(2, 1fr); }
+    header { padding: 25px 15px; }
+}
+
+/* --- Floating Search Navigator --- */
+#search-navigator {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 30px;
+    display: none; 
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    z-index: 1000;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+#search-navigator.visible {
+    display: flex;
+    animation: slideUp 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+#search-navigator span {
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    min-width: 50px;
+    text-align: center;
+}
+
+.nav-btn {
+    background: #667eea;
+    border: none;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.nav-btn:hover { background: #764ba2; }
+.nav-btn:active { transform: scale(0.95); }
+
+@keyframes slideUp {
+    from { transform: translate(-50%, 20px); opacity: 0; }
+    to { transform: translate(-50%, 0); opacity: 1; }
+}
+
+/* Language Switcher Styling */
+.lang-switch {
+    background: #ff9f43; /* Distinct color from the purple/blue */
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.3s;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lang-switch:hover {
+    background: #ee8e32;
+    transform: translateY(-2px);
+    color: #fff;
+}
+
+/* Width and Track */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Ensure it fits the grid on mobile */
+@media(max-width:768px){
+    .lang-switch {
+        padding: 8px 4px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Language Switcher in Header */
+.lang-switch-header {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    text-decoration: none;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px); /* Modern frosted glass effect */
+}
+
+.lang-switch-header:hover {
+    background: #fff;
+    color: #764ba2;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Mobile Adjustments */
+@media(max-width:768px){
+    .lang-switch-header {
+        top: 30px;
+        right: 30px;
+        font-size: 0.8rem;
+        padding: 4px 12px;
+    }
+    
+    header {
+        padding-top: 50px; /* Adds space so the title doesn't hit the button */
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="./ar" class="lang-switch-header">غيّر اللغة للعربية</a>
+  <h1>VetroM — Client Guidelines</h1>
+  <p>Effective: Version agreed upon at project start.</p>
+</header>
+
+<div class="toc">
+  <button onclick="scrollToSection('intro')">Intro</button>
+  <button onclick="scrollToSection('ownership')">Ownership</button>
+  <button onclick="scrollToSection('backend')">Backend</button>
+  <button onclick="scrollToSection('design')">Design</button>
+  <button onclick="scrollToSection('support')">Support</button>
+  <button onclick="scrollToSection('payment')">Payment</button>
+  <button onclick="scrollToSection('revisions')">Revisions</button>
+  <button onclick="scrollToSection('responsibilities')">Client Role</button>
+  <button onclick="scrollToSection('prohibited')">Prohibited</button>
+  <button onclick="scrollToSection('liability')">Liability</button>
+  <button onclick="scrollToSection('termination')">Termination</button>
+  <button onclick="scrollToSection('portfolio')">Portfolio</button>
+  <button onclick="scrollToSection('privacy')">Privacy</button>
+  <button onclick="scrollToSection('contact')">Contact</button>
+</div>
+
+<div class="search-container">
+  <div class="search-box">
+    <form onsubmit="event.preventDefault(); document.getElementById('search').blur();" style="width: 100%;">
+      <input type="text" id="search" placeholder="Search keywords..." enterkeyhint="search">
+    </form>
+  </div>
+
+  <div class="teleport-box">
+    <form onsubmit="event.preventDefault(); performTeleport();" style="width: 100%;">
+      <input type="number" id="line-teleport" placeholder="Jump to line #" enterkeyhint="go">
+    </form>
+  </div>
+
+  <div class="font-controls-wrapper">
+    <span class="control-label">Text Size</span>
+    <div class="button-group">
+      <button onclick="changeFontSize(1)" title="Increase Font">A+</button>
+      <button onclick="changeFontSize(-1)" title="Decrease Font">A-</button>
+    </div>
+  </div>
+</div>
+
+<div id="search-navigator">
+    <button class="nav-btn" onclick="navigateSearch(-1)">‹</button>
+    <span id="search-counter">0 / 0</span>
+    <button class="nav-btn" onclick="navigateSearch(1)">›</button>
+</div>
+
+<script>
+// --- Global Variables ---
+let currentMatches = [];
+let currentMatchIndex = -1;
+let searchTimeout = null;
+const searchInput = document.getElementById('search');
+const navigatorEl = document.getElementById('search-navigator');
+const counterEl = document.getElementById('search-counter');
+const lineInput = document.getElementById('line-teleport');
+
+// --- 1. Load Data & Initialize ---
+async function init() {
+    try {
+        const response = await fetch('data.json');
+        const data = await response.json();
+        renderSections(data.sections);
+        setupLineNumbers();
+    } catch (error) {
+        console.error("Error loading guidelines:", error);
+    }
+}
+
+function renderSections(sections) {
+    const container = document.querySelector('.search-container');
+    const sectionsHTML = sections.map(sec => `
+        <section id="${sec.id}">
+            <h2>${sec.title}</h2>
+            ${sec.content}
+        </section>
+    `).join('');
+    
+    // Insert sections before the closing of the body/scripts
+    container.insertAdjacentHTML('afterend', sectionsHTML);
+}
+
+function setupLineNumbers() {
+    let globalLineCount = 1;
+    document.querySelectorAll('section p, section h3, section li, section blockquote').forEach(el => {
+        el.setAttribute('data-line', globalLineCount);
+        globalLineCount++;
+    });
+}
+
+// --- 2. Teleport Logic ---
+function performTeleport() {
+    const lineNumber = lineInput.value;
+    if (!lineNumber) return;
+
+    lineInput.blur(); 
+
+    setTimeout(() => {
+        const targetEl = document.querySelector(`[data-line="${lineNumber}"]`);
+        if (targetEl) {
+            targetEl.closest('section').style.display = 'block';
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            targetEl.style.backgroundColor = '#fffa9c';
+            setTimeout(() => targetEl.style.backgroundColor = 'transparent', 3000);
+        } else {
+            alert('Line ' + lineNumber + ' not found!');
+        }
+    }, 350); 
+}
+
+// --- 3. Search Logic ---
+searchInput.addEventListener('input', function() {
+    const query = this.value.toLowerCase().trim();
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(() => {
+        performSearch(query);
+    }, 300);
+});
+
+function performSearch(query) {
+    currentMatches = [];
+    currentMatchIndex = -1;
+    
+    document.querySelectorAll('section').forEach(section => {
+        const originalText = section.getAttribute('data-original') || section.innerHTML;
+        if (!section.getAttribute('data-original')) section.setAttribute('data-original', originalText);
+        
+        section.innerHTML = originalText;
+        
+        if (query === '') {
+            section.style.display = 'block';
+            return; 
+        }
+
+        if (section.textContent.toLowerCase().includes(query)) {
+            section.style.display = 'block';
+            walkAndHighlight(section, query);
+        } else {
+            section.style.display = 'none';
+        }
+    });
+
+    if (query !== '') {
+        currentMatches = Array.from(document.querySelectorAll('mark'));
+        if (currentMatches.length > 0) {
+            navigatorEl.classList.add('visible');
+            currentMatchIndex = 0; 
+            updateNavigatorUI();
+            scrollToMatch(0);
+        } else {
+            navigatorEl.classList.remove('visible');
+        }
+    } else {
+        navigatorEl.classList.remove('visible');
+    }
+}
+
+function walkAndHighlight(node, query) {
+    const walker = document.createTreeWalker(node, NodeFilter.SHOW_TEXT, null, false);
+    const nodesToReplace = [];
+    
+    while(walker.nextNode()) {
+        if (walker.currentNode.nodeValue.toLowerCase().includes(query)) {
+            nodesToReplace.push(walker.currentNode);
+        }
+    }
+
+    nodesToReplace.forEach(textNode => {
+        const fragment = document.createDocumentFragment();
+        const text = textNode.nodeValue;
+        const lowerText = text.toLowerCase();
+        let lastIndex = 0;
+        let i = 0;
+        
+        while ((i = lowerText.indexOf(query, lastIndex)) > -1) {
+            if (i > lastIndex) {
+                fragment.appendChild(document.createTextNode(text.substring(lastIndex, i)));
+            }
+            const mark = document.createElement('mark');
+            mark.textContent = text.substring(i, i + query.length);
+            fragment.appendChild(mark);
+            lastIndex = i + query.length;
+        }
+        if (lastIndex < text.length) {
+            fragment.appendChild(document.createTextNode(text.substring(lastIndex)));
+        }
+        textNode.parentNode.replaceChild(fragment, textNode);
+    });
+}
+
+function updateNavigatorUI() {
+    counterEl.textContent = `${currentMatchIndex + 1} / ${currentMatches.length}`;
+}
+
+function scrollToMatch(index) {
+    currentMatches.forEach(el => el.classList.remove('current-match'));
+    const target = currentMatches[index];
+    if (target) {
+        target.classList.add('current-match');
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+}
+
+function navigateSearch(direction) {
+    if (currentMatches.length === 0) return;
+    currentMatchIndex += direction;
+    if (currentMatchIndex >= currentMatches.length) currentMatchIndex = 0;
+    if (currentMatchIndex < 0) currentMatchIndex = currentMatches.length - 1;
+    updateNavigatorUI();
+    scrollToMatch(currentMatchIndex);
+}
+
+// --- 4. Utilities ---
+function scrollToSection(id) { 
+    const section = document.getElementById(id); 
+    if(section) section.scrollIntoView({behavior:'smooth', block:'start'}); 
+}
+
+function changeFontSize(delta){ 
+    const body = document.body; 
+    const style = window.getComputedStyle(body,null).getPropertyValue('font-size'); 
+    const currentSize = parseFloat(style); 
+    body.style.fontSize = (currentSize+delta)+'px'; 
+}
+
+// Start the app
+init();
+</script>
+
+</body>
+</html>

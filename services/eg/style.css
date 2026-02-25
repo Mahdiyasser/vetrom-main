@@ -1,0 +1,354 @@
+/* ---------------------- Reset & Base ---------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Added standard Arabic fonts to the stack */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #212529;
+    line-height: 1.6;
+    font-size: 18px;
+    transition: background-color 0.3s, color 0.3s;
+    /* RTL Change: Set direction and default text alignment */
+    direction: rtl; 
+    text-align: right; 
+}
+
+body.dark {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------------------- Container ---------------------- */
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* ---------------------- Titles ---------------------- */
+.section-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    /* Keeping titles centered */
+    text-align: center;
+}
+
+.section-subtitle {
+    font-size: 1.4rem;
+    color: #6c757d;
+    margin-bottom: 2.5rem;
+    /* Keeping subtitles centered */
+    text-align: center;
+}
+
+body.dark .section-subtitle {
+    color: #bbb;
+}
+
+/* ---------------------- Grid Layout (Centered) ---------------------- */
+.grid, .standalone-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 0 5%;
+}
+
+.card, .standalone-card {
+    /* Set basis to allow two cards per row (50% - half the gap) */
+    flex: 0 0 calc(50% - 1rem);
+    max-width: 600px;
+    min-width: 330px;
+    padding: 2rem;
+    border-radius: 16px;
+    background-color: #fff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+#sponsored{
+    flex: 0 0 calc(75% - 1rem);
+    max-width: 900px;
+    padding: 2rem;
+    border-radius: 16px;
+    background-color: #fff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+body.dark #sponsored{
+    background-color: #1e1e1f;
+    border: 1px solid #333;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+
+/* ---------------------- Cards ---------------------- */
+.card, .standalone-card {
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+body.dark .card, body.dark .standalone-card {
+    background-color: #1e1e1f;
+    border: 1px solid #333;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.card h3, .standalone-card h4 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #0d6efd;
+}
+
+body.dark .card h3, body.dark .standalone-card h4 {
+    color: #22c55e;
+}
+
+.card ul {
+    list-style: none;
+    /* RTL Change: Use padding-right to remove default list indentation */
+    padding-right: 0;
+    padding-left: unset;
+    /* RTL Change: Align list items to the right */
+    text-align: right; 
+    font-size: 1.1rem;
+}
+
+.card ul li, .standalone-card p {
+    margin-bottom: 0.8rem;
+    color: #495057;
+}
+
+body.dark .standalone-card p, body.dark .card ul li {
+    color: #ccc;
+}
+
+.card:hover, .standalone-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+/* ---------------------- Buttons ---------------------- */
+.btn {
+    background-color: #0d6efd;
+    color: #fff;
+    border: none;
+    padding: 0.9rem 1.8rem;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    margin-bottom: 10px;
+    transition: all 0.25s ease;
+}
+
+#openContact{
+    /* Force the button to take up its full width's parent container */
+    display: block;
+    /* Use auto margins on left and right to center a block element */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn:hover {
+    background-color: #0a58ca;
+    transform: translateY(-2px);
+}
+
+/* ---------------------- Modal ---------------------- */
+.modal-bg {
+    display: none;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-bg.show {
+    display: flex;
+}
+
+.modal-content {
+    width: 70%;
+    max-width: 550px;
+    height: 630px;
+    max-height: 90vh;
+    background-color: #fff;
+    border-radius: 16px;
+    position: relative;
+}
+
+body.dark .modal-content {
+    background-color: #1e1e1f;
+}
+
+.modal-close {
+    position: absolute;
+    top: 0.5rem;
+    /* RTL Change: Flip close button position to the left */
+    left: 1rem; 
+    right: unset;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #212529;
+}
+
+body.dark .modal-close {
+    color: #fff;
+}
+
+.modal-content iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+}
+
+/* ---------------------- Toggle Button ---------------------- */
+#modeToggle {
+    position: fixed;
+    top: 1rem;
+    /* RTL Change: Mode toggle goes to the LEFT in RTL */
+    left: 1rem; 
+    right: unset; 
+    padding: 0.6rem 1.2rem;
+    border-radius: 12px;
+    cursor: pointer;
+    border: none;
+    background-color: #0d6efd;
+    color: #fff;
+    font-size: 1rem;
+    z-index: 2000;
+}
+
+#modeToggle:hover {
+    background-color: #0a58ca;
+}
+
+/* ---------------------- Language Toggle Button ---------------------- */
+#langToggle {
+    position: relative; 
+    top: 1rem;
+    /* RTL Change: Language toggle goes to the RIGHT in RTL */
+    right: 1rem; 
+    left: unset; 
+    padding: 0.6rem 1.2rem;
+    border-radius: 12px;
+    cursor: pointer;
+    border: none;
+    background-color: #0d6efd;
+    color: #fff;
+    font-size: 1rem;
+    z-index: 2000;
+}
+
+#langToggle:hover {
+    background-color: #0a58ca;
+}
+
+
+/* ---------------------- Responsive (Mobile Fixes) ---------------------- */
+@media (max-width: 768px) {
+    body { 
+        overflow-x: hidden; 
+        width: 100%;
+    }
+
+    .container { 
+        padding: 1rem; 
+        width: 100%;
+    }
+
+    /* --- FIX: Reset Grid Constraints --- */
+    .grid, .standalone-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Forces children to stay centered in the column */
+        gap: 1.5rem;
+        width: 100%;
+        padding: 0; /* Remove side padding that might push cards left */
+        margin: 0 auto;
+    }
+
+    /* Cards & sponsored card full width */
+    .card, .standalone-card, #sponsored {
+        /* Use 100% width but subtract a bit for margins if needed */
+        flex: 0 0 auto; 
+        width: 100%; 
+        max-width: 100%;
+        min-width: 0; /* Resets the 330px min-width from desktop which might be too wide */
+        padding: 1.5rem;
+        margin: 0 0 1rem 0;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        /* Ensure content inside stays centered or follows RTL */
+        text-align: center; 
+    }
+
+    /* Specific fix for the sponsored card */
+    #sponsored {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    /* Titles smaller */
+    .section-title { font-size: 1.8rem; }
+    .section-subtitle { font-size: 1.05rem; margin-bottom: 1.5rem; }
+
+    /* Modals */
+    .modal-content {
+        width: 95%;
+        max-width: 400px;
+        height: 80vh;
+        max-height: 90vh;
+        padding: 1rem;
+        border-radius: 12px;
+    }
+
+    .modal-content iframe { height: 100%; }
+
+    /* Buttons */
+    .btn {
+        font-size: 0.95rem;
+        padding: 0.7rem 1.2rem;
+        margin: 1rem auto;
+        display: inline-block; /* Changed from block to help centering */
+        width: auto;
+    }
+
+    /* Toggle button fixes */
+    #modeToggle {
+        top: 0.5rem;
+        left: 0.5rem; 
+        right: auto;
+        padding: 0.4rem 0.8rem;
+    }
+
+    #langToggle {
+        top: 0.5rem; 
+        right: 0.5rem !important; 
+        left: auto !important;
+    }
+}

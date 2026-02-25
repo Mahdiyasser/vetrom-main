@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VetroM | Web</title>
+    <title>VetroM | Mahdi Yasser</title>
     
     <meta name="description" content="VetroM: Your source for modern, high-performance, and beautiful digital solutions. Discover premium and free web systems, tools, and web apps from Mahdi Yasser.">
     <meta name="keywords" content="VetroM, Mahdi Yasser, web systems, digital solutions, marketplace, web apps, e-commerce, blog, login system, free tools, paid goods">
@@ -11,7 +11,7 @@
     <meta property="og:title" content="VetroM | Premium & Free Digital Solutions">
     <meta property="og:description" content="Discover a curated collection of light, fast, and highly functional websites, e-commerce platforms, blogs, and web systems.">
     <meta property="og:image" content="https://vetrom.mahdiyasser.site/favicon.png">
-    <meta property="og:url" content="https://vetrom.site">
+    <meta property="og:url" content="https://vetrom.mahdiyasser.site">
     <meta property="og:type" content="website">
     
     <meta name="twitter:card" content="summary_large_image">
@@ -19,32 +19,170 @@
     <meta name="twitter:description" content="Discover a curated collection of light, fast, and highly functional websites, e-commerce platforms, blogs, and web systems.">
     <meta name="twitter:image" content="https://vetrom.mahdiyasser.site/favicon.png">
 
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" href="/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
-    <style>
-
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            width: 100%;
-            overflow: hidden; 
-        }
-
-        iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-    </style>
 </head>
-<body>
+<body data-theme="light">
 
-    <iframe src="https://vetrom.mahdiyasser.site" allowfullscreen></iframe>
+    <header>
+        <div class="container">
+            <h1 class="logo">VetroM</h1>
 
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation">
+               <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#goods">Best Goods</a></li>
+                    <li><a href="./goods">All Goods</a></li>
+                    <li><a href="./services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="container">
+                <p class="subtitle">Your source for modern digital solutions</p>
+                <h2>Premium & <span class="highlight">Free</span> Systems, Tools, and Web Apps</h2>
+                <p>Discover a curated collection of websites, e-commerce platforms, blogs, and web systems—all designed to be light, fast, and highly functional.</p>
+                <a href="./goods" class="button primary">Explore All Goods</a>
+                <a href="./services" class="button primary">See All Services</a>
+            </div>
+        </section>
+
+        <section id="goods" class="goods-section">
+            <div class="container">
+                <h3 class="section-title">Our Best Goods</h3>
+                <p class="section-description">High-quality, light-weight digital assets for your next project.</p>
+                <div class="goods-list">
+                    <div class="good-card">
+                        <div class="tag free">Free</div>
+                        <h4>Simple Blog</h4>
+                        <p>A high-performance premium minimal blog with its own blazing fast CMS.<br> <br></p>
+                        <a href="./goods/index.html?product=5" class="button secondary">View Details</a>
+                    </div>
+                    <div class="good-card">
+                        <div class="tag paid">Paid</div>
+                        <h4>Media Upload Platform</h4>
+                        <p>A high-performance media platform with built-in users-based system and admin panel.</p>
+                        <a href="./goods/index.html?product=2" class="button secondary">View Details</a>
+                    </div>
+                    <div class="good-card">
+                        <div class="tag free">Free</div>
+                        <h4>Backup System</h4>
+                        <p>Minimalist and fast backup system.<br><br><br></p>
+                        <a href="./goods/index.html?product=3" class="button secondary">View Details</a>
+                    </div>
+                    <div class="good-card">
+                        <div class="tag paid">Paid</div>
+                        <h4>Login Security System</h4>
+                        <p>A comprehensive, feature-rich login system for modern web applications.<br> <br> <br></p>
+                        <a href="./goods/index.html?product=1" class="button secondary">View Details</a>
+                    </div>
+                    <div class="good-card">
+                        <div class="tag paid">Paid</div>
+                        <h4>Chat Platrom</h4>
+                        <p>Custom secured chatting platform that can autmoaticly create new chat rooms without touching code you can have
+                           your own chatting platform ready in miutes.</p>
+                        <a href="./goods/index.html?product=4" class="button secondary">View Details</a>
+                    </div>
+                    <div class="good-card">
+                        <div class="tag paid">Paid</div>
+                        <h4>Simple E-comm</h4>
+                        <p>A comprehensive, premium and simple <br> e-comm website for small shops and start-ups.<br> <br></p>
+                        <a href="./goods/index.html?product=6" class="button secondary">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container">
+                <h3 class="section-title">💡 About VetroM</h3>
+                <div class="about-content">
+                    <p>VetroM was founded on the principle that digital tools should be <strong>fast, reliable, and beautiful</strong>. We specialize in crafting modern web solutions, ranging from full-fledged systems to modular components.</p>
+                    <p>Our focus is on clean code, optimal performance, and user-centric design. Every product is built to offer a seamless experience, whether you're a developer, a business owner, or a creative professional.</p>
+                    <p class="highlight-text">We believe in making the web a better place, one functional and beautiful tool at a time.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="cta-section">
+            <div class="container">
+                <h3 class="section-title">Ready to Connect?</h3>
+                <p class="section-description">Have a question about a product or need custom development? Reach out to us directly!</p>
+                <button id="open-contact-modal" class="button primary">Send Us a Message</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 VetroM. Modern Marketplace. Built with ☕️</p>
+            <div class="footer-links">
+                <a href="./terms-and-privacy">Terms & Privacy</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="contact-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3 class="modal-title section-title">📧 Get in Touch</h3>
+            
+            <div class="contact-grid">
+                <div class="contact-form-container">
+                    <form id="contact-form" action="https://formspree.io/f/mwpgqoed" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="5" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="button primary">Send Message</button>
+                        <p id="form-message" class="hidden"></p>
+                    </form>
+                </div>
+
+                <div class="contact-details">
+                    <h4>Reach Out Directly</h4>
+                    <div class="detail-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <a href="mailto:mahdi@mahdiyasser.site">mahdi@mahdiyasser.site</a>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <a href="tel:+201013297922">+20 (10) 13297922</a>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Digital Office, World Wide Web</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://instagram.com/mahdiyasser1" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://github.com/Mahdiyasser" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://mahdiyasser.site" target="_blank" aria-label="Personal Website"><i class="fa-solid fa-globe"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

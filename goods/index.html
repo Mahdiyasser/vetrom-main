@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VetroM | Goods</title>
+
+    <meta name="description" content="Detailed information and story behind VetroM's premium and free digital tools. Explore the architecture and functionality of our web systems.">
+    <meta property="og:image" content="https://vetrom.mahdiyasser.site/favicon.png">
+    <meta name="keywords" content="VetroM goods, product details, web systems, digital tools, e-commerce, blog, login system, Mahdi Yasser">
+
+    <meta property="og:title" content="VetroM | Goods">
+    <meta property="og:description" content="Dive deep into the architecture, stories, and functionality behind our premium and free digital tools.">
+    <meta property="og:url" content="https://vetrom.mahdiyasser.site/goods">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="VetroM | Goods">
+    <meta name="twitter:description" content="Explore the full story and features of our digital goods.">
+    <meta name="twitter:image" content="https://vetrom.mahdiyasser.site/favicon.png">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="/favicon.png" type="image/png">
+
+    <style>
+        /* --- Page Specific Styles --- */
+        
+        /* Alternating Layout Styles */
+        .showcase-section {
+            padding: 80px 0;
+            background-color: var(--color-surface);
+        }
+
+        .product-row {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            margin-bottom: 100px;
+            opacity: 0; /* For fade-in animation */
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .product-row.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Even children (2nd, 4th) reverse direction */
+        .product-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .product-image-col {
+            flex: 1;
+            position: relative;
+        }
+
+        .product-image-col img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            background-color: var(--color-background); /* Placeholder color */
+        }
+
+        .product-image-col img:hover {
+            transform: scale(1.02);
+        }
+
+        .product-info-col {
+            flex: 1;
+        }
+
+        .product-tag {
+            display: inline-block;
+            background-color: var(--color-accent-1);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .product-title {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: var(--color-text);
+            line-height: 1.2;
+        }
+
+        .product-desc {
+            font-size: 1.1em;
+            color: var(--color-text-secondary);
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        /* --- Full Screen Slide-Up Modal --- */
+        .details-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-surface);
+            z-index: 3000;
+            transform: translateY(100%); /* Hidden below screen */
+            transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+            overflow-y: auto; /* Allow scrolling */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .details-modal.active {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            position: sticky;
+            top: 0;
+            background-color: var(--color-surface);
+            padding: 20px;
+            border-bottom: 1px solid var(--color-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .modal-close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--color-text);
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .modal-close-btn:hover {
+            color: var(--color-accent-1);
+        }
+
+        .modal-body {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            width: 100%;
+        }
+
+        .modal-hero-img {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover; /* or contain, depending on preference */
+            object-position: top;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .story-content {
+            font-size: 1.15em;
+            color: var(--color-text);
+            line-height: 1.8;
+            white-space: pre-line; /* Preserves line breaks from JSON */
+        }
+
+        .story-title {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: var(--color-accent-1);
+        }
+       
+        .story-content pre {
+            white-space: pre-wrap;
+            word-break: break-word;
+            overflow-wrap: anywhere;
+        }
+
+
+        /* Responsive Tweaks */
+        @media (max-width: 768px) {
+            .product-row, .product-row:nth-child(even) {
+                flex-direction: column;
+                gap: 2rem;
+                text-align: left;
+            }
+            .product-title { font-size: 2em; }
+        }
+    </style>
+</head>
+<body data-theme="light">
+    
+    <header>
+        <div class="container">
+            <h1 class="logo">VetroM</h1>
+
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation">
+               <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#goods">Best Goods</a></li>
+                    <li><a href="#products-container">All Goods</a></li>
+                    <li><a href="../services">Services</a></li>
+                    <li><a href="../index.html#about">About</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <p class="subtitle">Detailed Breakdown</p>
+                <h2>Explore Our <span class="highlight">Goods</span></h2>
+                <p>Dive deep into the architecture, stories, and functionality behind our premium and free digital tools. Select a product below to view its full story.</p>
+            </div>
+        </section>
+
+        <section class="showcase-section">
+            <div class="container" id="products-container">
+                <p style="text-align:center;">Loading products...</p>
+            </div>
+        </section>
+    </main>
+
+    <div id="full-details-modal" class="details-modal">
+        <div class="modal-header">
+            <h3>Product Details</h3>
+            <button class="modal-close-btn" id="close-modal-btn">
+                <i class="fa-solid fa-xmark"></i> Close
+            </button>
+        </div>
+        <div class="modal-body">
+            <img src="" alt="" id="modal-img" class="modal-hero-img">
+            <h2 id="modal-title" class="story-title"></h2>
+            <div class="tag" id="modal-tag" style="position:static; margin-bottom:20px; display:inline-block;"></div>
+            <div id="modal-story" class="story-content"></div>
+        </div>
+    </div>
+        <section id="contact" class="cta-section">
+            <div class="container">
+                <h3 class="section-title">Ready to Get Your Product</h3>
+                <p class="section-description">Have a question about a product or want to buy one or get the free one ?<br> Reach out to us directly!</p>
+                <button id="open-contact-modal" class="button primary">Send Us a Message</button>
+            </div>
+        </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 VetroM. Modern Marketplace. Built with ☕️</p>
+            <div class="footer-links">
+                <a href="../terms-and-privacy">Terms & Privacy</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <div id="contact-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3 class="modal-title section-title">📧 Get in Touch</h3>
+            
+            <div class="contact-grid">
+                <div class="contact-form-container">
+                    <form id="contact-form" action="https://formspree.io/f/mwpgqoed" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="5" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="button primary">Send Message</button>
+                        <p id="form-message" class="hidden"></p>
+                    </form>
+                </div>
+
+                <div class="contact-details">
+                    <h4>Reach Out Directly</h4>
+                    <div class="detail-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <a href="mailto:mahdi@mahdiyasser.site">mahdi@mahdiyasser.site</a>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <a href="tel:+201013297922">+20 (10) 13297922</a>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Digital Office, World Wide Web</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://instagram.com/mahdiyasser1" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://github.com/Mahdiyasser" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://mahdiyasser.site" target="_blank" aria-label="Personal Website"><i class="fa-solid fa-globe"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../script.js"></script>
+
+    <script>
+        // Simple Theme Logic matching your existing site
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        
+        // Check local storage
+        if (localStorage.getItem('theme') === 'dark') {
+            body.setAttribute('data-theme', 'dark');
+            themeToggle.textContent = '☀️';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (body.getAttribute('data-theme') === 'light') {
+                body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeToggle.textContent = '☀️';
+            } else {
+                body.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                themeToggle.textContent = '🌙';
+            }
+        });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
